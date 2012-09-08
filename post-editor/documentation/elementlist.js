@@ -1,0 +1,3 @@
+
+var ApiGen = ApiGen || {};
+ApiGen.elements = [["f","ar_print()"],["f","ar_to_string()"],["f","debug_print()"],["f","dump_html_tree()"],["f","file_get_html()"],["f","get_file_extension()"],["f","identify_modifier_markdown()"],["f","log_file()"],["f","Markdown()"],["c","Markdown_Parser"],["c","MarkdownExtra_Parser"],["f","mdwp_add_p()"],["f","mdwp_hide_tags()"],["f","mdwp_MarkdownPost()"],["f","mdwp_show_tags()"],["f","mdwp_strip_p()"],["c","PosteditorModal"],["c","PosteditorModal_excel_to_table"],["c","PosteditorModal_upload_to_html"],["c","simple_html_dom"],["c","simple_html_dom_node"],["f","smarty_modifier_markdown()"],["f","str_get_html()"],["c","Textile"]];

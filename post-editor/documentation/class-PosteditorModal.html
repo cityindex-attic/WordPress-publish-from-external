@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.7.0" />
+
+	<title>Class PosteditorModal</title>
+
+	<script type="text/javascript" src="resources/combined.js?2398159053"></script>
+	<script type="text/javascript" src="elementlist.js?1206859476"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?1567499433" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Packages</h3>
+			<ul>
+				<li><a href="package-david.coombes.html">david-coombes</a>
+						</li>
+				<li><a href="package-None.html">None</a>
+						</li>
+				<li><a href="package-PlaceLocalInclude.html">PlaceLocalInclude<span></span></a>
+						<ul>
+				<li><a href="package-PlaceLocalInclude.simple.html">simple<span></span></a>
+						<ul>
+				<li><a href="package-PlaceLocalInclude.simple.html.html">html<span></span></a>
+						<ul>
+				<li><a href="package-PlaceLocalInclude.simple.html.dom.html">dom</a>
+						</li>
+							</ul></li></ul></li></ul></li>
+				<li class="active"><a href="package-post.editor.html">post-editor</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-PosteditorModal.html">PosteditorModal</a></li>
+				<li><a href="class-PosteditorModal_excel_to_table.html">PosteditorModal_excel_to_table</a></li>
+				<li><a href="class-PosteditorModal_upload_to_html.html">PosteditorModal_upload_to_html</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="package-post.editor.html" title="Summary of post-editor"><span>Package</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+			<li>
+				<a href="todo.html" title="Todo list"><span>Todo</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class PosteditorModal</h1>
+
+
+	<div class="description">
+	
+<p>This class handles the iframe contents for the modal popup tinymce
+plugin.</p>
+
+<p>Adding a new content process involves a number of files all in their
+respective folders. The css|js files would be optional. All files follow strict
+filename formats.</p>
+
+<p>The format of adding an action is:</p>
+
+<ul>
+	<li>The namespace is in the format {sourceData}_to_{resultData} for example,
+	converting excel to html tables, the namespace would be excel_to_tables</li>
+
+	<li>Register the action with the module by adding to the param $this-&gt;action
+	in the format {$namespace} =&gt; "tab text"</li>
+
+	<li>Add any js and css files to POSTEDITOR_DIR . /public_html/js|css in the
+	format PosteditorModal_{$namespace}.js|css respectfully. Register these in
+	public methods $this-&gt;load_styles() and $this-&gt;load_scripts() in the new
+	action class file.</li>
+
+	<li>The class for the action should be located in modules folder and called
+	PosteditorModal_{$namespace}.class.php.</li>
+
+	<li>The view file should be placed in POSTEDITOR_DIR . /public_html/ in the
+	format PosteditorModal_{$namespace}.php</li>
+</ul>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		
+		<b>Package:</b> <a href="package-post.editor.html">post-editor</a><br />
+
+				<b>Author:</b>
+				daithi<br />
+				<b>Todo:</b>
+				Create a parent class to handle the methods: - get_page() - get_styles() -
+get_scripts()<br />
+		<b>Located at</b> <a href="source-class-PosteditorModal.html#8" title="Go to source code">PosteditorModal.class.php</a><br />
+	</div>
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-PosteditorModal.html#45" title="Go to source code">__construct</a>( )</code>
+
+		<div class="description short">
+			
+<p>constructor</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>constructor</p>
+
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="admin_init" id="_admin_init">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_admin_init">#</a>
+		<code><a href="source-class-PosteditorModal.html#76" title="Go to source code">admin_init</a>( )</code>
+
+		<div class="description short">
+			
+<p>Constructs the action object.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Constructs the action object.</p>
+
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="get_page" id="_get_page">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_get_page">#</a>
+		<code><a href="source-class-PosteditorModal.html#114" title="Go to source code">get_page</a>( )</code>
+
+		<div class="description short">
+			
+<p>Prints the view html.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Prints the view html.</p>
+
+<p>Loads the html then sets shortcodes ( @see PosteditorModal::set_shortcodes()
+) then loads scripts (@see PosteditorModal::load_scripts() ) and styles (@see
+PosteditorModal::load_styles() ) then prints html</p>
+
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.7.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>

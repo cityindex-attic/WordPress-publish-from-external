@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.7.0" />
+
+	<title>Class PosteditorModal_upload_to_html</title>
+
+	<script type="text/javascript" src="resources/combined.js?2398159053"></script>
+	<script type="text/javascript" src="elementlist.js?1206859476"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?1567499433" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Packages</h3>
+			<ul>
+				<li><a href="package-david.coombes.html">david-coombes</a>
+						</li>
+				<li><a href="package-None.html">None</a>
+						</li>
+				<li><a href="package-PlaceLocalInclude.html">PlaceLocalInclude<span></span></a>
+						<ul>
+				<li><a href="package-PlaceLocalInclude.simple.html">simple<span></span></a>
+						<ul>
+				<li><a href="package-PlaceLocalInclude.simple.html.html">html<span></span></a>
+						<ul>
+				<li><a href="package-PlaceLocalInclude.simple.html.dom.html">dom</a>
+						</li>
+							</ul></li></ul></li></ul></li>
+				<li class="active"><a href="package-post.editor.html">post-editor</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-PosteditorModal.html">PosteditorModal</a></li>
+				<li><a href="class-PosteditorModal_excel_to_table.html">PosteditorModal_excel_to_table</a></li>
+				<li class="active"><a href="class-PosteditorModal_upload_to_html.html">PosteditorModal_upload_to_html</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="package-post.editor.html" title="Summary of post-editor"><span>Package</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+			<li>
+				<a href="todo.html" title="Todo list"><span>Todo</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class PosteditorModal_upload_to_html</h1>
+
+
+	<div class="description">
+	
+<p>Handles uploads to the Post Editor plugin and converts them to html for use
+in the editor.</p>
+
+<p>Module strictly works by file types. To add a new file type for
+processing:</p>
+
+<ul>
+	<li>add the file extension to $this-&gt;accepted_files in
+	$this-&gt;construct.</li>
+
+	<li>Then create a private method to handle the data in the format:
+	<code>parse_&lt;span class="php-var"&gt;$filextension&lt;/span&gt;( &lt;span
+	class="php-var"&gt;$data&lt;/span&gt; )</code> This must return the formated
+	data as html for use in the wordpress post editor.</li>
+
+	<li>add any css to the file <code>POSTEDITOR_DIR
+	/public_html/css/PosteditorModal_upload_to_html.css</code></li>
+
+	<li>don't forget to comment your method to phpDocumentator standard ;)</li>
+</ul>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		
+		<b>Package:</b> <a href="package-post.editor.html">post-editor</a><br />
+
+				<b>Author:</b>
+				daithi<br />
+				<b>See:</b>
+				PosteditorModal_upload_to_html::accepted_files<br />
+				<b>Todo:</b>
+				Issues - md format doesn't highlight links or link to commits.<br />
+		<b>Located at</b> <a href="source-class-PosteditorModal_upload_to_html.html#5" title="Go to source code">PosteditorModal_upload_to_html.class.php</a><br />
+	</div>
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-PosteditorModal_upload_to_html.html#39" title="Go to source code">__construct</a>( )</code>
+
+		<div class="description short">
+			
+<p>constructor</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>constructor</p>
+
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="get_page" id="_get_page">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_get_page">#</a>
+		<code><a href="source-class-PosteditorModal_upload_to_html.html#86" title="Go to source code">get_page</a>( )</code>
+
+		<div class="description short">
+			
+<p>Returns the html for the view file.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Returns the html for the view file.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="load_scripts" id="_load_scripts">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_load_scripts">#</a>
+		<code><a href="source-class-PosteditorModal_upload_to_html.html#106" title="Go to source code">load_scripts</a>( )</code>
+
+		<div class="description short">
+			
+<p>Loads javascript files</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Loads javascript files</p>
+
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="load_styles" id="_load_styles">
+
+		<td class="attributes"><code>
+			 public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_load_styles">#</a>
+		<code><a href="source-class-PosteditorModal_upload_to_html.html#122" title="Go to source code">load_styles</a>( )</code>
+
+		<div class="description short">
+			
+<p>Loads css files</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Loads css files</p>
+
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen 2.7.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>
