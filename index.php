@@ -1,134 +1,57 @@
 <?php
+namespace CityIndex\WP\PostExternal;
+
 /**
- * @package post-editor
+ * @package wp-plugin-framework
  */
 /*
-Plugin Name: Post Editor
-Plugin URI: http://david-coombes.com
-Description: Add a model for manipulating pasted data on the wordpress posts/page editor. Modal will be called from button on normal tinyMCE toolbar
-Version: 0.1
-Author: David Coombes
-Author URI: http://david-coombes.com
-*/
-
-//debug?
-error_reporting(E_ALL);
-ini_set("display_errors", "on");
-
-//constants
-define("POSTEDITOR_DIR", WP_PLUGIN_DIR . "/" . basename(dirname(__FILE__)));
-define("POSTEDITOR_URL", WP_PLUGIN_URL . "/" . basename(dirname(__FILE__)));
-
-//vars
-$posteditor_action = @$_REQUEST['posteditor_action'];
-$posteditor_error = array();
-$posteditor_message = array();
-
-//include 3rd parties
-require_once( POSTEDITOR_DIR . "/application/includes/debug.func.php");
-require_once( POSTEDITOR_DIR . "/application/includes/markdown.php");
-require_once( POSTEDITOR_DIR . "/application/includes/simple_html_dom.php");
-
-//include plugin class files - PosteditorModal includes its own submodels in 
-//PosteditorModal::admin_init()
-require_once( POSTEDITOR_DIR . "/application/Posteditor.class.php");
-require_once( POSTEDITOR_DIR . "/application/modules/PosteditorModal.class.php");
-
-//construct plugin objects
-$posteditor = new Posteditor();
-$posteditor_modal = new PosteditorModal();
-
-/**
- * Actions and Filters
- */
-add_action('admin_init', array($posteditor, 'admin_init'));
-add_action('admin_head', array($posteditor, 'admin_head'));
-add_action('init', array($posteditor, 'init'));
-add_action('wp_ajax_get_modal_editor',array($posteditor_modal,'get_page'));
-add_action('wp_ajax_nopriv_get_modal_editor',array($posteditor_modal,'get_page'));
-register_activation_hook(__FILE__, 'posteditor_INSTALL');
-
-/**
- * Add custom tabs to media uploader. 
- *
- * @param array $tabs Current array of media tabs
- * @return type 
- * @deprecated
- *
-function append_new_media_tab($tabs){
-	return $tabs;
-	$newtab = array('genify' => __('Axcoto Genify','axcotogenify'));
-	return array_merge($tabs, $newtab);
-}
-add_filter('media_upload_tabs', 'append_new_media_tab');
- * 
+  Plugin Name: A WP Plugin Framework
+  Plugin URI: https://github.com/david-coombes/wp-plugin-framework
+  Description: Framework for seperating logic from front end code.
+  Version: 0.1
+  Author: Daithi Coombes
+  Author URI: http://david-coombes.com
  */
 
+/**
+ * Bootstrap 
+ */
+//define constants
+define( 'PLUGIN_DIR', WP_PLUGIN_DIR . "/" . basename(dirname( __FILE__ )));
+define( 'PLUGIN_URL', WP_PLUGIN_URL . "/" . basename(dirname( __FILE__ )));
 
+//autoload
+spl_autoload_register(function($class){
+		$class = ucfirst($class);
+		$class = @array_pop(explode("\\", $class));
+		@include_once( PLUGIN_DIR . "/application/{$class}.class.php");
+		@include_once( PLUGIN_DIR . "/application/modules/{$class}.class.php");
+},true);
 
+//include lib
+require_once( PLUGIN_DIR . "/application/includes/debug.func.php");
 
 /**
- * Adds an error to the errors array.
- *
- * @global array $posteditor_error
- * @param string $msg The error message
+ * Configuration 
  */
-function posteditor_error( $msg ){
-	global $posteditor_error;
-	$posteditor_error[] = $msg;
-}
-
-/**
- * Builds up the error box from the errors array.
- *
- * @global array $posteditor_error
- * @return string 
- */
-function posteditor_get_errors(){
-	
-	global $posteditor_error;
-	
-	$html = "<div id=\"message\" class=\"error\"><ul>\n";
-
-	if (!count($posteditor_error))
-		return false;
-
-	foreach ($posteditor_error as $error)
-		$html .= "<li>{$error}</li>\n";
-
-	return $html . "</ul></div>\n";
-}
-
-/**
- * Builds up the messages box from the messages array.
- *
- * @global array $posteditor_message
- * @return string 
- */
-function posteditor_get_messages(){
-	
-	global $posteditor_message;
-
-	$html = "<div id=\"message-1\" class=\"updated\"><ul>\n";
-
-	if (!count($posteditor_message))
-		return false;
-
-	foreach ($posteditor_message as $msg)
-		$html .= "<li>{$msg}</li>\n";
-
-	return $html . "</ul></div>\n";
-}
-
-/**
- * Adds a message to the messages array.
- *
- * @global array $posteditor_message
- * @param string $msg 
- */
-function posteditor_message( $msg ){
-	
-	global $posteditor_message;
-	$posteditor_message[] = $msg;
-}
-?>
+$config = new Config();
+//$foo = new Controller();
+$config->action_key = "wp-plugin-action";
+$config->debug = 1;
+$config->init_modules = array(
+	'NetworkAdmin'
+);
+$config->third_party = array(
+	'script' => array(),
+	'css' => array()
+);
+$config->modal_tables = array(
+	/*
+	'Table_1' => array(
+		'`id` INT(11) NOT NULL AUTO_INCREMENT',
+		'`name` VARCHAR(20) NOT NULL',
+		'`description` text NOT NULL',
+		'PRIMARY KEY(`id`)'
+	)*/
+);
+$config->build();
