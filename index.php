@@ -12,8 +12,8 @@ Author URI: http://david-coombes.com
 */
 
 //debug?
-//error_reporting(E_ALL);
-//ini_set("display_errors", "on");
+error_reporting(E_ALL);
+ini_set("display_errors", "on");
 
 //constants
 define("POSTEDITOR_DIR", WP_PLUGIN_DIR . "/" . basename(dirname(__FILE__)));
